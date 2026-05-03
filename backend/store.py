@@ -11,6 +11,7 @@ class Vehicle:
     lng: float
     bearing: Optional[float]
     current_stop_sequence: Optional[int]
+    stop_id: Optional[str]            # current stop ID (if available)
     timestamp: int                     # unix epoch seconds
 
 @dataclass
@@ -60,6 +61,9 @@ class AppStore:
     stop_to_trips: dict[str, list[tuple[str, int]]] = field(default_factory=dict)
     # key: trip_id, value: ordered list of (stop_id, stop_sequence) tuples
     trip_to_stops: dict[str, list[tuple[str, int]]] = field(default_factory=dict)
+    # key: (trip_id, stop_id), value: (arrival_seconds_since_midnight, departure_seconds_since_midnight)
+    # Used as fallback when trip_updates unavailable
+    stop_times: dict[tuple[str, str], tuple[int, int]] = field(default_factory=dict)
     # set of service_ids active today
     active_service_ids: set[str] = field(default_factory=set)
     # set of trip_ids running today (pre-computed from active_service_ids)

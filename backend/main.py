@@ -14,7 +14,7 @@ from routers import alerts, stops, vehicles
 
 load_dotenv()
 
-FEED_POLL_INTERVAL = int(os.getenv("FEED_POLL_INTERVAL", 60))
+FEED_POLL_INTERVAL = int(os.getenv("FEED_POLL_INTERVAL", 30))
 MD5_CHECK_INTERVAL = int(os.getenv("MD5_CHECK_INTERVAL", 300))
 
 connected_clients: set[WebSocket] = set()
@@ -32,6 +32,7 @@ def _serialize_vehicles() -> list[dict]:
 			"lng": vehicle.lng,
 			"bearing": vehicle.bearing,
 			"current_stop_sequence": vehicle.current_stop_sequence,
+			"stop_id": vehicle.stop_id,
 			"timestamp": vehicle.timestamp,
 		}
 		for vehicle in store.vehicles.values()

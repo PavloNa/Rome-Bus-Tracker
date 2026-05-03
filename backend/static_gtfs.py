@@ -166,13 +166,14 @@ def parse_calendar(zip_ref: zipfile.ZipFile) -> set[str]:
     return active_service_ids
 
 
-def parse_stop_times(zip_ref: zipfile.ZipFile) -> tuple[dict[str, list[tuple[str, int]]], dict[str, list[tuple[str, int]]]]:
+def parse_stop_times(zip_ref: zipfile.ZipFile) -> tuple[dict[str, list[tuple[str, int]]], dict[str, list[tuple[str, int]]], dict[tuple[str, str], tuple[int | None, int | None]]]:
     reader = _open_csv(zip_ref, "stop_times.txt")
     if reader is None:
-        return {}, {}
+        return {}, {}, {}
 
     stop_to_trips: dict[str, list[tuple[str, int]]] = {}
     trip_to_stops: dict[str, list[tuple[str, int]]] = {}
+    stop_times: dict[tuple[str, str], tuple[int | None, int | None]] = {}
 
     for row in reader:
         trip_id = (row.get("trip_id") or "").strip()
@@ -187,8 +188,10 @@ def parse_stop_times(zip_ref: zipfile.ZipFile) -> tuple[dict[str, list[tuple[str
         stop_to_trips.setdefault(stop_id, []).append((trip_id, stop_sequence))
         trip_to_stops.setdefault(trip_id, []).append((stop_id, stop_sequence))
 
-        _parse_time_to_seconds((row.get("arrival_time") or "").strip())
-        _parse_time_to_seconds((row.get("departure_time") or "").strip())
+        # Parse and store arrival/departure times
+        arrival_sec = _parse_time_to_seconds((row.get("arrival_time") or "").strip())
+        departure_sec = _parse_time_to_seconds((row.get("departure_time") or "").strip())
+        stop_times[(trip_id, stop_id)] = (arrival_sec, departure_sec)
 
     for stop_id, trip_entries in stop_to_trips.items():
         trip_entries.sort(key=lambda item: (item[1], item[0]))
@@ -196,7 +199,7 @@ def parse_stop_times(zip_ref: zipfile.ZipFile) -> tuple[dict[str, list[tuple[str
     for trip_id, stop_entries in trip_to_stops.items():
         stop_entries.sort(key=lambda item: (item[1], item[0]))
 
-    return stop_to_trips, trip_to_stops
+    return stop_to_trips, trip_to_stops, stop_times
 
 
 async def load_static_gtfs() -> None:
@@ -207,7 +210,7 @@ async def load_static_gtfs() -> None:
         routes = parse_routes(zip_ref)
         trip_to_route, trip_to_service = parse_trips(zip_ref)
         active_service_ids = parse_calendar(zip_ref)
-        stop_to_trips, trip_to_stops = parse_stop_times(zip_ref)
+        stop_to_trips, trip_to_stops, stop_times = parse_stop_times(zip_ref)
 
     active_trip_ids = {trip_id for trip_id, service_id in trip_to_service.items() if service_id in active_service_ids}
 
@@ -216,6 +219,7 @@ async def load_static_gtfs() -> None:
     store.trips = trip_to_route
     store.stop_to_trips = stop_to_trips
     store.trip_to_stops = trip_to_stops
+    store.stop_times = stop_times
     store.active_service_ids = active_service_ids
     store.active_trip_ids = active_trip_ids
 

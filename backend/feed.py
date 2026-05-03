@@ -42,35 +42,54 @@ def decode_vehicle_positions(raw: bytes) -> dict[str, Vehicle]:
             lng=v.position.longitude,
             bearing=v.position.bearing if v.position.HasField("bearing") else None,
             current_stop_sequence=v.current_stop_sequence if v.HasField("current_stop_sequence") else None,
+            stop_id=v.stop_id if v.HasField("stop_id") else None,
             timestamp=v.timestamp if v.HasField("timestamp") else int(time.time()),
         )
     return vehicles
 
 def decode_trip_updates(raw: bytes) -> dict[str, TripUpdate]:
     feed = gtfs_realtime_pb2.FeedMessage()
-    feed.ParseFromString(raw)
+    try:
+        feed.ParseFromString(raw)
+    except Exception as e:
+        print(f"Warning: Failed to parse trip_updates protobuf: {e}")
+        print(f"Raw data first 100 bytes: {raw[:100]}")
+        return {}
 
     trip_updates = {}
-    for entity in feed.entity:
-        if not entity.HasField("trip_update"):
-            continue
+    try:
+        for entity in feed.entity:
+            if not entity.HasField("trip_update"):
+                continue
 
-        tu = entity.trip_update
-        stop_time_updates = []
-        for stu in tu.stop_time_update:
-            stop_time_updates.append(StopTimeUpdate(
-                stop_id=stu.stop_id,
-                stop_sequence=stu.stop_sequence,
-                arrival_time=stu.arrival.time if stu.HasField("arrival") else None,
-                departure_time=stu.departure.time if stu.HasField("departure") else None,
-            ))
+            tu = entity.trip_update
+            stop_time_updates = []
+            for stu in tu.stop_time_update:
+                try:
+                    arrival_time = stu.arrival.time if stu.HasField("arrival") else None
+                    departure_time = stu.departure.time if stu.HasField("departure") else None
+                    stop_time_updates.append(StopTimeUpdate(
+                        stop_id=stu.stop_id,
+                        stop_sequence=stu.stop_sequence if stu.HasField("stop_sequence") else 0,
+                        arrival_time=arrival_time,
+                        departure_time=departure_time,
+                    ))
+                except Exception as e:
+                    print(f"Warning: Failed to parse stop_time_update: {e}")
+                    continue
 
-        trip_updates[tu.trip.trip_id] = TripUpdate(
-            trip_id=tu.trip.trip_id,
-            route_id=tu.trip.route_id,
-            vehicle_id=tu.vehicle.id if tu.HasField("vehicle") else None,
-            stop_time_updates=stop_time_updates,
-        )
+            try:
+                trip_updates[tu.trip.trip_id] = TripUpdate(
+                    trip_id=tu.trip.trip_id,
+                    route_id=tu.trip.route_id if tu.HasField("trip") and tu.trip.HasField("route_id") else None,
+                    vehicle_id=tu.vehicle.id if tu.HasField("vehicle") else None,
+                    stop_time_updates=stop_time_updates,
+                )
+            except Exception as e:
+                print(f"Warning: Failed to create TripUpdate: {e}")
+                continue
+    except Exception as e:
+        print(f"Warning: Error iterating trip_updates: {e}")
 
     return trip_updates
 
