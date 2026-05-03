@@ -1,0 +1,757 @@
+{
+  "vehicle_positions": [
+    {
+      "id": "1",
+      "is_deleted": false,
+      "vehicle": {
+        "trip": {
+          "trip_id": "0#610-11",
+          "start_time": "15:42:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "position": {
+          "latitude": 41.874573,
+          "longitude": 12.56566,
+          "odometer": 8021.0
+        },
+        "current_stop_sequence": 41,
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": "1777819828",
+        "stop_id": "80223",
+        "vehicle": {
+          "id": "52",
+          "label": "0101"
+        },
+        "occupancy_status": "MANY_SEATS_AVAILABLE"
+      }
+    },
+    {
+      "id": "2",
+      "is_deleted": false,
+      "vehicle": {
+        "trip": {
+          "trip_id": "0#594-12",
+          "start_time": "17:13:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "position": {
+          "latitude": 41.90051,
+          "longitude": 12.50036,
+          "odometer": 3736.0
+        },
+        "current_stop_sequence": 21,
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": "1777819818",
+        "stop_id": "30913",
+        "vehicle": {
+          "id": "53",
+          "label": "0102"
+        }
+      }
+    },
+    {
+      "id": "3",
+      "is_deleted": false,
+      "vehicle": {
+        "trip": {
+          "trip_id": "0#598-10",
+          "start_time": "15:05:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "position": {
+          "latitude": 41.87332,
+          "longitude": 12.569511,
+          "odometer": 8146.0
+        },
+        "current_stop_sequence": 41,
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": "1777819824",
+        "stop_id": "80223",
+        "vehicle": {
+          "id": "55",
+          "label": "0104"
+        },
+        "occupancy_status": "STANDING_ROOM_ONLY"
+      }
+    }
+  ],
+  "trip_updates": [
+    {
+      "id": "1",
+      "is_deleted": false,
+      "trip_update": {
+        "trip": {
+          "trip_id": "0#610-11",
+          "start_time": "15:42:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "stop_time_update": [
+          {
+            "stop_sequence": 41,
+            "arrival": {
+              "delay": 302,
+              "time": "1777820102",
+              "uncertainty": 3
+            },
+            "stop_id": "80223",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 42,
+            "arrival": {
+              "delay": 302,
+              "time": "1777820222",
+              "uncertainty": 16
+            },
+            "stop_id": "82302",
+            "schedule_relationship": "NO_DATA"
+          }
+        ],
+        "vehicle": {
+          "id": "52",
+          "label": "0101"
+        },
+        "timestamp": "1777819830",
+        "delay": 188
+      }
+    },
+    {
+      "id": "2",
+      "is_deleted": false,
+      "trip_update": {
+        "trip": {
+          "trip_id": "0#594-12",
+          "start_time": "17:13:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "stop_time_update": [
+          {
+            "stop_sequence": 21,
+            "arrival": {
+              "delay": -3194,
+              "time": "1777819846",
+              "uncertainty": 13
+            },
+            "stop_id": "30913",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 22,
+            "arrival": {
+              "delay": -3100,
+              "time": "1777820174",
+              "uncertainty": 13
+            },
+            "stop_id": "71049",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 23,
+            "arrival": {
+              "delay": -3158,
+              "time": "1777820268",
+              "uncertainty": 13
+            },
+            "stop_id": "76935",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 24,
+            "arrival": {
+              "delay": -3164,
+              "time": "1777820392",
+              "uncertainty": 13
+            },
+            "stop_id": "71060",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 25,
+            "arrival": {
+              "delay": -3168,
+              "time": "1777820470",
+              "uncertainty": 13
+            },
+            "stop_id": "71752",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 26,
+            "arrival": {
+              "delay": -3208,
+              "time": "1777820574",
+              "uncertainty": 13
+            },
+            "stop_id": "71665",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 27,
+            "arrival": {
+              "delay": -3264,
+              "time": "1777820636",
+              "uncertainty": 13
+            },
+            "stop_id": "71666",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 28,
+            "arrival": {
+              "delay": -3238,
+              "time": "1777820716",
+              "uncertainty": 13
+            },
+            "stop_id": "70374",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 29,
+            "arrival": {
+              "delay": -3264,
+              "time": "1777820808",
+              "uncertainty": 13
+            },
+            "stop_id": "82697",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 30,
+            "arrival": {
+              "delay": -3264,
+              "time": "1777820930",
+              "uncertainty": 9
+            },
+            "departure": {
+              "delay": -3264,
+              "time": "1777820930",
+              "uncertainty": 9
+            },
+            "stop_id": "30893",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 31,
+            "arrival": {
+              "delay": -3344,
+              "time": "1777821014",
+              "uncertainty": 13
+            },
+            "stop_id": "82703",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 32,
+            "arrival": {
+              "delay": -3422,
+              "time": "1777821048",
+              "uncertainty": 13
+            },
+            "stop_id": "71667",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 33,
+            "arrival": {
+              "delay": -3480,
+              "time": "1777821092",
+              "uncertainty": 13
+            },
+            "stop_id": "71668",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 34,
+            "arrival": {
+              "delay": -3482,
+              "time": "1777821160",
+              "uncertainty": 13
+            },
+            "stop_id": "71669",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 35,
+            "arrival": {
+              "delay": -3494,
+              "time": "1777821202",
+              "uncertainty": 13
+            },
+            "stop_id": "71670",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 36,
+            "arrival": {
+              "delay": -3520,
+              "time": "1777821248",
+              "uncertainty": 13
+            },
+            "stop_id": "71671",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 37,
+            "arrival": {
+              "delay": -3536,
+              "time": "1777821310",
+              "uncertainty": 13
+            },
+            "stop_id": "71672",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 38,
+            "arrival": {
+              "delay": -3536,
+              "time": "1777821380",
+              "uncertainty": 9
+            },
+            "departure": {
+              "delay": -3536,
+              "time": "1777821380",
+              "uncertainty": 9
+            },
+            "stop_id": "71673",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 39,
+            "arrival": {
+              "delay": -3548,
+              "time": "1777821428",
+              "uncertainty": 13
+            },
+            "stop_id": "71674",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 40,
+            "arrival": {
+              "delay": -3648,
+              "time": "1777821538",
+              "uncertainty": 13
+            },
+            "stop_id": "71675",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 41,
+            "arrival": {
+              "delay": -3490,
+              "time": "1777821944",
+              "uncertainty": 13
+            },
+            "stop_id": "80223",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 42,
+            "arrival": {
+              "delay": -3490,
+              "time": "1777822070",
+              "uncertainty": 16
+            },
+            "stop_id": "82302",
+            "schedule_relationship": "NO_DATA"
+          }
+        ],
+        "vehicle": {
+          "id": "53",
+          "label": "0102"
+        },
+        "timestamp": "1777819818",
+        "delay": -3206
+      }
+    },
+    {
+      "id": "3",
+      "is_deleted": false,
+      "trip_update": {
+        "trip": {
+          "trip_id": "0#598-10",
+          "start_time": "15:05:00",
+          "start_date": "20260503",
+          "route_id": "105",
+          "direction_id": 0
+        },
+        "stop_time_update": [
+          {
+            "stop_sequence": 41,
+            "arrival": {
+              "delay": 2318,
+              "time": "1777819898",
+              "uncertainty": 7
+            },
+            "stop_id": "80223",
+            "schedule_relationship": "SCHEDULED"
+          },
+          {
+            "stop_sequence": 42,
+            "arrival": {
+              "delay": 2318,
+              "time": "1777820018",
+              "uncertainty": 16
+            },
+            "stop_id": "82302",
+            "schedule_relationship": "NO_DATA"
+          }
+        ],
+        "vehicle": {
+          "id": "55",
+          "label": "0104"
+        },
+        "timestamp": "1777819826",
+        "delay": 2288
+      }
+    }
+  ],
+  "service_alerts": [
+    {
+      "id": "34756",
+      "is_deleted": false,
+      "alert": {
+        "active_period": [
+          {
+            "start": "1737095100",
+            "end": "1788199200"
+          }
+        ],
+        "informed_entity": [
+          {
+            "route_id": "05"
+          }
+        ],
+        "cause": "CONSTRUCTION",
+        "effect": "DETOUR",
+        "header_text": {
+          "translation": [
+            {
+              "text": "Chiusa ai mezzi pesanti il transito in viale Vasco de Gama",
+              "language": "it"
+            }
+          ]
+        },
+        "description_text": {
+          "translation": [
+            {
+              "text": "Su disposizione della Polizia di Roma Capitale, viene chiusa ai mezzi pesanti il transito in viale Vasco de Gama nel tratto compreso tra via Tagaste e viale delle Repubbliche Marinare la linea in direzione via Idroscalo, da viale Vasco de Gama, via delle Sirene, via Carlo Bosio, via delle Isole del Capo Verde, via Aristide Carabelli, via Corrado del Greco, via Aristide Carabelli, viale delle Repubbliche Marinare, normale percorso di linea. Temporaneamente sospesa fermata 77007. (@romamobilita)",
+              "language": "it"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "36133",
+      "is_deleted": false,
+      "alert": {
+        "active_period": [
+          {
+            "start": "1746013740",
+            "end": "1788199200"
+          }
+        ],
+        "informed_entity": [
+          {
+            "route_id": "89"
+          }
+        ],
+        "cause": "CONSTRUCTION",
+        "effect": "DETOUR",
+        "header_text": {
+          "translation": [
+            {
+              "text": "Modifica temporanea percorso linea 89",
+              "language": "it"
+            }
+          ]
+        },
+        "description_text": {
+          "translation": [
+            {
+              "text": "Su disposizione del dipartimento Mobilità di Roma Capitale, la linea  non transita in via Makalle', via Asmara e via Tripoli. (@romamobilita)",
+              "language": "it"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "36829",
+      "is_deleted": false,
+      "alert": {
+        "active_period": [
+          {
+            "start": "1746070200",
+            "end": "1782842400"
+          }
+        ],
+        "informed_entity": [
+          {
+            "route_id": "235"
+          }
+        ],
+        "cause": "CONSTRUCTION",
+        "effect": "DETOUR",
+        "header_text": {
+          "translation": [
+            {
+              "text": "Interdizione al transito di Via Asmara ",
+              "language": "it"
+            }
+          ]
+        },
+        "description_text": {
+          "translation": [
+            {
+              "text": "Direzione Bressanone I S. Agnese Annibaliano: normale percorso di linea fino a Viale Libia altezza Piazza Santa Emerenziana, proseguire su Viale Eritrea,Corso Trieste, fino altezza Piazza Istria, inversione di marcia, Piazza Annibaliano,dx Via Bressanone indi normale percorso di linea.\r\nDirezione Labia: normale percorso di linea fino a Piazzale Annibaliano, proseguire su Viale Eritrea, fino altezza Piazza Santa Emerenziana indi normale percorso di linea.\r\n (@romamobilita)",
+              "language": "it"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "static_gtfs": {
+    "files": [
+      "agency.txt",
+      "routes.txt",
+      "shapes.txt",
+      "trips.txt",
+      "stop_times.txt",
+      "stops.txt",
+      "calendar_dates.txt"
+    ],
+    "csv_samples": {
+      "agency.txt": [
+        {
+          "agency_id": "OP1",
+          "agency_name": "Atac",
+          "agency_url": "http://www.atac.roma.it",
+          "agency_timezone": "Europe/Rome",
+          "agency_lang": "it",
+          "agency_phone": "06 57003",
+          "agency_fare_url": ""
+        },
+        {
+          "agency_id": "OP265",
+          "agency_name": "TROIANI",
+          "agency_url": "https://autoservizitroiani.com/",
+          "agency_timezone": "Europe/Rome",
+          "agency_lang": "it",
+          "agency_phone": "06 57003",
+          "agency_fare_url": ""
+        },
+        {
+          "agency_id": "TUS",
+          "agency_name": "TUSCIA",
+          "agency_url": "http://www.TUSCIA.it",
+          "agency_timezone": "Europe/Rome",
+          "agency_lang": "IT",
+          "agency_phone": "0657003",
+          "agency_fare_url": "http://www.TUSCIA.it"
+        }
+      ],
+      "routes.txt": [
+        {
+          "route_id": "211",
+          "agency_id": "OP1",
+          "route_short_name": "211",
+          "route_long_name": "",
+          "route_type": "3",
+          "route_url": "https://muoversiaroma.it/it/linea?numero=211",
+          "route_color": "",
+          "route_text_color": ""
+        },
+        {
+          "route_id": "C2",
+          "agency_id": "OP1",
+          "route_short_name": "C2",
+          "route_long_name": "",
+          "route_type": "3",
+          "route_url": "https://muoversiaroma.it/it/linea?numero=C2",
+          "route_color": "",
+          "route_text_color": ""
+        },
+        {
+          "route_id": "62",
+          "agency_id": "OP1",
+          "route_short_name": "62",
+          "route_long_name": "",
+          "route_type": "3",
+          "route_url": "https://muoversiaroma.it/it/linea?numero=62",
+          "route_color": "",
+          "route_text_color": ""
+        }
+      ],
+      "shapes.txt": [
+        {
+          "shape_id": "51478",
+          "shape_pt_lat": "41.730108",
+          "shape_pt_lon": "12.302105",
+          "shape_pt_sequence": "145",
+          "shape_dist_traveled": "8176.34"
+        },
+        {
+          "shape_id": "51478",
+          "shape_pt_lat": "41.730392",
+          "shape_pt_lon": "12.302407",
+          "shape_pt_sequence": "146",
+          "shape_dist_traveled": "8216.59"
+        },
+        {
+          "shape_id": "51478",
+          "shape_pt_lat": "41.730670",
+          "shape_pt_lon": "12.302695",
+          "shape_pt_sequence": "147",
+          "shape_dist_traveled": "8255.72"
+        }
+      ],
+      "trips.txt": [
+        {
+          "route_id": "T01",
+          "service_id": "1#17",
+          "trip_id": "1#189-2",
+          "trip_headsign": "TUSCOLANA/ANAGNINA",
+          "trip_short_name": "18368458",
+          "direction_id": "0",
+          "block_id": "",
+          "shape_id": "51509",
+          "wheelchair_accessible": "0",
+          "exceptional": "0"
+        },
+        {
+          "route_id": "C11",
+          "service_id": "1#17",
+          "trip_id": "1#189-4",
+          "trip_headsign": "CIMITERO LAURENTINO",
+          "trip_short_name": "18368452",
+          "direction_id": "0",
+          "block_id": "",
+          "shape_id": "63032",
+          "wheelchair_accessible": "0",
+          "exceptional": "0"
+        },
+        {
+          "route_id": "C11",
+          "service_id": "1#17",
+          "trip_id": "1#189-5",
+          "trip_headsign": "CINECITTA' (MA)",
+          "trip_short_name": "18368455",
+          "direction_id": "1",
+          "block_id": "",
+          "shape_id": "63033",
+          "wheelchair_accessible": "0",
+          "exceptional": "0"
+        }
+      ],
+      "stop_times.txt": [
+        {
+          "trip_id": "1#189-2",
+          "arrival_time": "07:30:00",
+          "departure_time": "07:30:00",
+          "stop_id": "74761",
+          "stop_sequence": "1",
+          "stop_headsign": "",
+          "pickup_type": "",
+          "drop_off_type": "",
+          "shape_dist_traveled": "0",
+          "timepoint": "1"
+        },
+        {
+          "trip_id": "1#189-2",
+          "arrival_time": "07:34:26",
+          "departure_time": "07:34:26",
+          "stop_id": "74763",
+          "stop_sequence": "2",
+          "stop_headsign": "",
+          "pickup_type": "",
+          "drop_off_type": "",
+          "shape_dist_traveled": "1167",
+          "timepoint": "0"
+        },
+        {
+          "trip_id": "1#189-2",
+          "arrival_time": "07:36:26",
+          "departure_time": "07:36:26",
+          "stop_id": "74765",
+          "stop_sequence": "3",
+          "stop_headsign": "",
+          "pickup_type": "",
+          "drop_off_type": "",
+          "shape_dist_traveled": "1697",
+          "timepoint": "0"
+        }
+      ],
+      "stops.txt": [
+        {
+          "stop_id": "05000",
+          "stop_code": "05000",
+          "stop_name": "TERMINI (MA-MB-FS)",
+          "stop_desc": "",
+          "stop_lat": "41.901308",
+          "stop_lon": "12.500433",
+          "stop_url": "",
+          "wheelchair_boarding": "",
+          "stop_timezone": "",
+          "location_type": "",
+          "parent_station": ""
+        },
+        {
+          "stop_id": "05001",
+          "stop_code": "05001",
+          "stop_name": "NERVI/PALAZZO SPORT",
+          "stop_desc": "",
+          "stop_lat": "41.823818",
+          "stop_lon": "12.466082",
+          "stop_url": "",
+          "wheelchair_boarding": "",
+          "stop_timezone": "",
+          "location_type": "",
+          "parent_station": ""
+        },
+        {
+          "stop_id": "05004",
+          "stop_code": "05004",
+          "stop_name": "AGRICOLTURA",
+          "stop_desc": "",
+          "stop_lat": "41.836690",
+          "stop_lon": "12.471420",
+          "stop_url": "",
+          "wheelchair_boarding": "",
+          "stop_timezone": "",
+          "location_type": "",
+          "parent_station": ""
+        }
+      ],
+      "calendar_dates.txt": [
+        {
+          "service_id": "1#10",
+          "date": "20260504",
+          "exception_type": "1"
+        },
+        {
+          "service_id": "1#12",
+          "date": "20260504",
+          "exception_type": "1"
+        },
+        {
+          "service_id": "1#21",
+          "date": "20260504",
+          "exception_type": "1"
+        }
+      ]
+    }
+  }
+}

@@ -229,7 +229,7 @@ VEHICLE_POSITIONS_URL=https://romamobilita.it/sites/default/files/rome_rtgtfs_ve
 TRIP_UPDATES_URL=https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
 SERVICE_ALERTS_URL=https://romamobilita.it/sites/default/files/rome_rtgtfs_service_alerts_feed.pb
 STATIC_GTFS_URL=https://romamobilita.it/sites/default/files/rome_static_gtfs.zip
-STATIC_GTFS_MD5_URL=https://romamobilita.it/sites/default/files/rome_static_gtfs.zip.md5
+STATIC_GTFS_MD5_URL=https://romamobilita.it/wp-content/uploads/drupal/rome_static_gtfs.zip.md5
 FEED_POLL_INTERVAL=60
 MD5_CHECK_INTERVAL=300
 ```
@@ -367,11 +367,10 @@ STATIC_GTFS_MD5_URL = os.getenv("STATIC_GTFS_MD5_URL")
   - `{trip_id: service_id}` — to filter active trips
 
 **`def parse_calendar(zip_ref: zipfile.ZipFile) -> set[str]`**
-- Opens `calendar.txt` from the zip
-- Reads CSV: `service_id, monday, tuesday, ..., start_date, end_date`
-- Gets today's weekday name
-- Returns set of `service_id` values where today's column = "1" and today is within start/end date range
-- Also handles `calendar_dates.txt` overrides (exception_type 1=added, 2=removed)
+- In the current Rome static GTFS zip, `calendar.txt` is not present
+- Reads `calendar_dates.txt` as the active service source for the current dataset
+- Uses rows where `date == today` and applies `exception_type` (`1` add, `2` remove)
+- If a future zip includes `calendar.txt`, it can still be merged in as an optional fallback, but the live payload we inspected does not require it
 
 **`def parse_stop_times(zip_ref: zipfile.ZipFile) -> tuple[dict, dict]`**
 - Opens `stop_times.txt` from the zip — this is the largest file, potentially millions of rows
@@ -446,8 +445,8 @@ SERVICE_ALERTS_URL = os.getenv("SERVICE_ALERTS_URL")
 **`def decode_service_alerts(raw: bytes) -> list[ServiceAlert]`**
 - Parses `FeedMessage`
 - For each entity where `entity.HasField("alert")`:
-  - Extracts `alert.header_text.translation[0].text` (pick language "it" or first available)
-  - Extracts `alert.description_text.translation[0].text`
+  - Extracts `alert.header_text.translation[0].text` from the first available translation in the live payload
+  - Extracts `alert.description_text.translation[0].text` the same way
   - Iterates `alert.informed_entity`:
     - Collects `route_id` values into `affected_route_ids`
     - Collects `stop_id` values into `affected_stop_ids`
