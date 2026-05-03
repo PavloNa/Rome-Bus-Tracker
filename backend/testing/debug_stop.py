@@ -17,17 +17,17 @@ async def debug_stop(stop_id: str):
     if not stop:
         print(f"❌ Stop {stop_id} not found!")
         return
-    
+
     print(f"✓ Stop found: {stop.stop_name}")
-    
+
     # Get trips serving this stop
     trips_at_stop = store.stop_to_trips.get(stop_id, [])
     print(f"\n📍 Trips serving this stop: {len(trips_at_stop)}")
-    
+
     if not trips_at_stop:
         print("   No trips found!")
         return
-    
+
     # Show first 10 trips
     for i, (trip_id, stop_seq) in enumerate(trips_at_stop[:10]):
         route_id = store.trips.get(trip_id)
@@ -35,18 +35,18 @@ async def debug_stop(stop_id: str):
         is_active = trip_id in store.active_trip_ids
         has_vehicle = any(v.trip_id == trip_id for v in store.vehicles.values())
         has_update = trip_id in store.trip_updates
-        
+
         status = "✓ ACTIVE" if is_active else "✗ INACTIVE"
         vehicle_str = " (has vehicle)" if has_vehicle else ""
         update_str = " (has trip_update)" if has_update else ""
-        
+
         print(f"   {i+1}. Trip {trip_id} | Route {route_name} | Seq {stop_seq} | {status}{vehicle_str}{update_str}")
-    
+
     # Check active trip count
     print(f"\n📊 Active trips in store: {len(store.active_trip_ids)}")
     print(f"📊 Trip updates in store: {len(store.trip_updates)}")
     print(f"📊 Vehicles in store: {len(store.vehicles)}")
-    
+
     # Show sample trip update if available
     if trips_at_stop:
         sample_trip = trips_at_stop[0][0]
